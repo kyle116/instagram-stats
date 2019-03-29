@@ -9,7 +9,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-	<Router>
+	<Router basename="/instagram-stats">
 		<div className="App">
 			<Route
 				exact path='/'
