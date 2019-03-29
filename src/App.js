@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 // Services
 // Pages
-import HomePage from '../pages/HomePage/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 // Stylesheets
 import './App.css';
 
