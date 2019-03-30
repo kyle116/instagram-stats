@@ -31,12 +31,30 @@ class ItemService {
 	        // Post pasted link
 	        const postInfo = JSON.parse(jsonObject);
 			const urlType = postInfo.entry_data.hasOwnProperty('PostPage') ? 'post' : 'profile';
-			responseData = {
+			// responseData = {
+	  //       	country_code: postInfo.country_code,
+	  //       	language_code: postInfo.language_code,
+	  //       	display_url: postInfo.entry_data.PostPage[0].graphql.shortcode_media.display_url,
+	  //       	number_of_comments: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_comment.count,
+	  //       	number_of_likes: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_preview_like.count
+	  //       	// ,sponsors: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_sponsor_user
+
+	  //       }
+
+	        responseData = {
 	        	country_code: postInfo.country_code,
 	        	language_code: postInfo.language_code,
 	        	display_url: postInfo.entry_data.PostPage[0].graphql.shortcode_media.display_url,
 	        	number_of_comments: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_comment.count,
-	        	number_of_likes: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_preview_like.count
+	        	number_of_likes: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_preview_like.count,
+				profile_pic: postInfo.entry_data.PostPage[0].graphql.shortcode_media.owner.profile_pic_url,
+				username: postInfo.entry_data.PostPage[0].graphql.shortcode_media.owner.username,
+				is_verified: postInfo.entry_data.PostPage[0].graphql.shortcode_media.owner.is_verified,
+				followed_by_viewer: postInfo.entry_data.PostPage[0].graphql.shortcode_media.owner.followed_by_viewer,
+				comments: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_comment.edges,
+				// comments text: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_comment.edges[0].node.text,
+				// comments username: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_comment.edges[0].node.owner.username,
+				time_of_post: postInfo.entry_data.PostPage[0].graphql.shortcode_media.taken_at_timestamp
 	        	// ,sponsors: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_sponsor_user
 
 	        }

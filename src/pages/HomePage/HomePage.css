@@ -1,0 +1,23 @@
+.titleLine {
+	/*border-bottom: 1px solid rgb(27,188,255);*/
+}
+
+.titleLine:after {
+	border-bottom: 1px solid rgb(27,188,255);
+	content: '';
+	display: block;
+	margin-left: 45%;
+    width: 10%;
+}
+
+.adEqual {
+	font-size: 35pt;
+}
+.adMoney {
+	display: inline-block;
+	font-size: 35pt;
+}
+
+.adDescription {
+	display: inline-block;
+}

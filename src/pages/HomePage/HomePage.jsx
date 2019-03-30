@@ -12,13 +12,19 @@ class HomePage extends Component {
 		super(props);
 		this.state = {
 			postData: null,
-			url: 'https://www.instagram.com/p/BuIQ4TeFaVs/',
+			url: 'https://www.instagram.com/p/BvmpcOWhHId/',
 			embedUrl: ''
 		}
 	    this.onChange = this.onChange.bind(this);
 	    this.submitUrl = this.submitUrl.bind(this);
 	}
 	componentDidMount() {
+		itemService.igTestFunc(this.state.url).then(postData => {
+			this.setState({
+		    postData: postData,
+		    embedUrl: `${this.state.url}embed`
+		  });
+		});
 	}
 
 	onChange(e) {
@@ -42,23 +48,34 @@ class HomePage extends Component {
 	render() {
 		return (
 		<div className="container-fluid">
-			<div className="text-center">The currency for influencer sponsorship valuations</div>
-			<div className="row">
-				<div className="col-sm-7 text-right">
-					<iframe width="300" height="500" src={this.state.embedUrl} frameBorder="0"></iframe>
-				</div>
-				{this.state.postData &&
-				<ul className="col-sm-5">
-					<li>country_code: {this.state.postData.country_code}</li>
-					<li>language_code: {this.state.postData.language_code}</li>
-					<li>display_url: {this.state.postData.display_url.substring(0, 30)}...</li>
-					<li>number_of_comments: {this.state.postData.number_of_comments}</li>
-					<li>number_of_likes: {this.state.postData.number_of_likes}</li>
-					<li>sponsors: {this.state.postData.sponsors}</li>
-				</ul>}
+			<h1 className="text-center titleLine">Instagram Stats</h1>
+			<div className="row justify-content-md-center">
+				<div class="col-md-2 text-center">Ad Customization</div>
+				<div class="col-md-2 text-center">Media Value</div>
+				<div class="col-md-2 text-center">Contact</div>
 			</div>
-			<div className="text-center">Have an ad in mind with a certain influencer? Check out how much you should be paying first!</div>
-			<div className="row justify-content-center">
+			<div className="text-center mt-3 mb-3">The currency for influencer sponsorship valuations</div>
+			<div className="row">
+				<div className="col-sm-8">
+					{/* this.state.postData && <IgModal postData={this.state.postData} /> */}
+					<img className="img-fluid float-right" src={require('../../igmodal.png')}/>
+				</div>
+				<div className="col-sm-4">
+					<div className="container d-flex h-100">
+						<div className="row align-self-center">
+							<div className="col-sm-2">
+								<span className="adEqual">=</span>
+							</div>
+							<div className="col-sm-8">
+								<span className="adMoney">$16,150</span>
+								<span className="adDescription align-center">@alexisren Market Value for Branded Content sponsorship on this specific post (pictured left)</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="text-center mt-5">Have an ad in mind with a certain influencer? Check out how much you should be paying first!</div>
+			<div className="row justify-content-center mb-5">
 				<form onSubmit={this.submitUrl} className="input-group md-form form-sm form-2 pl-0 col-sm-5">
 					<input
 						placeholder="Paste the influencer’s post link you wish to value in here!"
@@ -83,7 +100,6 @@ class HomePage extends Component {
 				<div className="col-sm-4 text-center">
 					<iframe width="300" height="500" src="https://www.instagram.com/p/BviYL1-nnYy/embed" frameBorder="0"></iframe>
 				</div>
-				<IgModal />
 			</div>
 		</div>
 		);
