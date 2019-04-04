@@ -11,18 +11,31 @@ class MediaValuePage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			postData: null,
-			url: 'https://www.instagram.com/p/BvmpcOWhHId/',
+			postData: '',
+			url: 'https://www.instagram.com/p/',
 			embedUrl: ''
 		}
 	}
 	componentDidMount() {
-		itemService.igTestFunc(this.state.url).then(postData => {
-			this.setState({
-		    postData: postData,
-		    embedUrl: `${this.state.url}embed`
-		  });
-		});
+		if(localStorage.getItem('ig_shortcode')) {
+			var igUrl = this.state.url + localStorage.getItem('ig_shortcode');
+			itemService.igTestFunc(igUrl).then(postData => {
+				this.setState({
+					postData: postData,
+					url: igUrl,
+					embedUrl: `${igUrl}embed`
+				});
+			});
+		} else {
+			var igUrl = prompt('Enter an Instagram post link');
+			itemService.igTestFunc(igUrl).then(postData => {
+				this.setState({
+					postData: postData,
+					url: igUrl,
+					embedUrl: `${igUrl}embed`
+				});
+			});
+		}
 	}
 	
 	render() {
@@ -41,12 +54,19 @@ class MediaValuePage extends Component {
 						<div className="row align-self-center">
 							{this.state.postData &&
 							<ul className="">
-								<li className="">country_code: {this.state.postData.country_code}</li>
-								<li>language_code: {this.state.postData.language_code}</li>
-								<li>display_url: {this.state.postData.display_url.substring(0, 30)}...</li>
-								<li>number_of_comments: {this.state.postData.number_of_comments}</li>
-								<li>number_of_likes: {this.state.postData.number_of_likes}</li>
-								<li>sponsors: {this.state.postData.sponsors}</li>
+								<li>Account: @{this.state.postData.username}</li>
+								<li>Sponsorship Type: {'Branded Content'}</li>
+								<li>Platform: {'Instagram'}</li>
+								<li>Market Value: {'$22,500'}</li>
+								<li>Brand Sponsor Media Value: {'$76,235'}</li>
+								<li>Logo Size: {'Medium'}</li>
+								<li>Logo Placement: {'Corners'}</li>
+								<li>Logo Prominence: {'Overlay'}</li>
+								<li>Followers: {this.state.postData.followers}</li>
+								<li>Post Impressions: {this.state.postData.number_of_likes}</li>
+								<li>Post Engagements: {this.state.postData.number_of_comments}</li>
+								<li>Engagement Rate: {'8.1%'}</li>
+								<li>Influencer World Rank: {'#888'}</li>
 							</ul>}
 						</div>
 					</div>

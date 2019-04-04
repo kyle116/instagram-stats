@@ -40,6 +40,7 @@ class HomePage extends Component {
 		const url = this.state.url;
 		console.log(url)
 		itemService.igTestFunc(url).then(postData => {
+			localStorage.setItem('ig_shortcode', postData.ig_shortcode);
 			this.setState({
 		    postData: postData,
 		    embedUrl: `${url}embed`
@@ -51,7 +52,7 @@ class HomePage extends Component {
 		return (
 		<div className="container-fluid">
 			<h1 className="text-center titleLine">Instagram Stats</h1>
-			<NavBar/>
+			<NavBar mediaValueData={this.state.postData ? this.state.postData : null} />
 			<div className="text-center mt-3 mb-3">The currency for influencer sponsorship valuations</div>
 			<div className="row">
 				<div className="col-sm-8">

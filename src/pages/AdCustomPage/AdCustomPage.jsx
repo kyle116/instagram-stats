@@ -322,6 +322,14 @@ class AdCustomPage extends Component {
 					    </div>
 				    </div>
 			    </div>
+
+			    <div className="container">
+				    <div className="row">
+					    <div class="col text-center">
+					    	<button type="button" className="btn btn-success w-25">Done</button>
+					    </div>
+				    </div>
+			    </div>
 			</div>
 		</div>
 		);
