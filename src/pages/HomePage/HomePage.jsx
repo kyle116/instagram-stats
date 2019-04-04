@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route, Redirect, Link} from 'react-router-dom';
 // Services
 import itemService from '../../services/itemService';
 // Components
 import IgModal from '../../components/IgModal/IgModal';
+import NavBar from '../../components/NavBar/NavBar';
 // Stylesheets
 import './HomePage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -49,16 +51,12 @@ class HomePage extends Component {
 		return (
 		<div className="container-fluid">
 			<h1 className="text-center titleLine">Instagram Stats</h1>
-			<div className="row justify-content-md-center">
-				<div class="col-md-2 text-center">Ad Customization</div>
-				<div class="col-md-2 text-center">Media Value</div>
-				<div class="col-md-2 text-center">Contact</div>
-			</div>
+			<NavBar/>
 			<div className="text-center mt-3 mb-3">The currency for influencer sponsorship valuations</div>
 			<div className="row">
 				<div className="col-sm-8">
 					{/* this.state.postData && <IgModal postData={this.state.postData} /> */}
-					<img className="img-fluid float-right" src={require('../../igmodal.png')}/>
+					<img className="img-fluid float-right homeImage" src={require('../../igmodal.png')}/>
 				</div>
 				<div className="col-sm-4">
 					<div className="container d-flex h-100">
