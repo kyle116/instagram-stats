@@ -73,10 +73,8 @@ class AdCustomPage extends Component {
 					}
 				}
 			},
-			adClasses: ''
+			adClasses: 'ad'
 		}
-	    this.onChange = this.onChange.bind(this);
-	    this.submitUrl = this.submitUrl.bind(this);
 	    this.toggleSquareClick = this.toggleSquareClick.bind(this);
 	}
 	componentDidMount() {
@@ -86,146 +84,11 @@ class AdCustomPage extends Component {
 		//     embedUrl: `${this.state.url}embed`
 		//   });
 		// });
-		var buttonState = Object.assign({}, this.state.buttons);
-		var adClasses = document.getElementById('ad-overlay').className;
-		var radioElements = document.getElementsByClassName('square-radio');
-		// for (var i = 0; i < radioElements.length; i++) {
-		// 	radioElements[i].addEventListener('click', function() {
-		// 		console.log(this.id)
-				
-		//         this.classList.toggle('square-radio-clicked');
-		//         switch(this.id) {
-		//         	case 'branded-content':
-		//         		buttonState['branded-content']['active'] = !buttonState['branded-content']['active'];
-		//         		break;
-		//         	case 'small':
-		//         		buttonState['branded-content']['size']['small'] = !buttonState['branded-content']['size']['small'];
-		//         		// console.log(buttonState)
-		//         		if(buttonState['branded-content']['size']['small']) {
-		//         			adClasses += ' small';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' small', '');
-		//         		}
-		//         		break;
-	 //        		case 'medium':
-	 //        			buttonState['branded-content']['size']['medium'] = !buttonState['branded-content']['size']['medium'];
-	 //        			if(buttonState['branded-content']['size']['medium']) {
-		//         			adClasses += ' medium';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' medium', '');
-		//         		}
-	 //        			break;
-  //       			case 'large':
-  //       				buttonState['branded-content']['size']['large'] = !buttonState['branded-content']['size']['large'];
-	 //        			if(buttonState['branded-content']['size']['large']) {
-		//         			adClasses += ' large';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' large', '');
-		//         		}
-	 //        			break;
-  //       			case 'center':
-  //       				buttonState['branded-content']['placement']['center'] = !buttonState['branded-content']['placement']['center'];
-	 //        			if(buttonState['branded-content']['placement']['center']) {
-		//         			adClasses += ' center';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' center', '');
-		//         		}
-	 //        			break;
-  //       			case 'corners':
-  //       				buttonState['branded-content']['placement']['corners'] = !buttonState['branded-content']['placement']['corners'];
-	 //        			if(buttonState['branded-content']['placement']['corners']) {
-		//         			adClasses += ' corners';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' corners', '');
-		//         		}
-	 //        			break;
-  //       			case 'sides':
-  //       				buttonState['branded-content']['placement']['sides'] = !buttonState['branded-content']['placement']['sides'];
-	 //        			if(buttonState['branded-content']['placement']['sides']) {
-		//         			adClasses += ' sides';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' sides', '');
-		//         		}
-	 //        			break;
-  //       			case 'overlay':
-  //       				buttonState['branded-content']['prominence']['overlay'] = !buttonState['branded-content']['prominence']['overlay'];
-	 //        			if(buttonState['branded-content']['prominence']['overlay']) {
-		//         			adClasses += ' overlay';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' overlay', '');
-		//         		}
-	 //        			break;
-  //       			case 'background':
-  //       				buttonState['branded-content']['prominence']['background'] = !buttonState['branded-content']['prominence']['background'];
-	 //        			if(buttonState['branded-content']['prominence']['background']) {
-		//         			adClasses += ' background';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' background', '');
-		//         		}
-	 //        			break;
-  //       			case 'foreground':
-  //       				buttonState['branded-content']['prominence']['foreground'] = !buttonState['branded-content']['prominence']['foreground'];
-	 //        			if(buttonState['branded-content']['prominence']['foreground']) {
-		//         			adClasses += ' foreground';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' foreground', '');
-		//         		}
-	 //        			break;
-  //       			case 'paid-partnership':
-  //       				buttonState['paid-partnership'] = !buttonState['paid-partnership'];
-	 //        			if(buttonState['branded-content']['paid-partnership']) {
-		//         			adClasses += ' paid-partnership';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' paid-partnership', '');
-		//         		}
-	 //        			break;
-  //       			case 'product-placement':
-  //       				buttonState['product-placement']['active'] = !buttonState['product-placement']['active'];
-	 //        			if(buttonState['product-placement']['active']) {
-		//         			adClasses += ' product-placement';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' product-placement', '');
-		//         		}
-	 //        			break;
-  //       			case 'instagram-story':
-  //       				buttonState['instagram-story'] = !buttonState['instagram-story'];
-	 //        			if(buttonState['branded-content']['instagram-story']) {
-		//         			adClasses += ' instagram-story';
-		//         		} else {
-		//         			adClasses = adClasses.replace(' instagram-story', '');
-		//         		}
-	 //        			break;
-		//         }
-		//         // this.setState({
-		//         // 	buttons: buttonState
-		//         // })
-		//         document.getElementById('ad-overlay').className = adClasses;
-		//         console.log('classes', document.getElementById('ad-overlay').className)
-		//     });
-		// }
-	}
-
-	onChange(e) {
-		// this.setState({
-		//   url: e.target.value
-		// });
-	}
-
-	submitUrl(e) {
-		e.preventDefault();
-		const url = this.state.url;
-		console.log(url)
-		itemService.igTestFunc(url).then(postData => {
-			this.setState({
-		    postData: postData,
-		    embedUrl: `${url}embed`
-		  });
-		});
 	}
 
 	toggleSquareClick(e, parentCatergory) {
 		var buttonState = Object.assign({}, this.state.buttons);
-		var adClasses = document.getElementById('ad-overlay').className;
+		var adClasses = this.state.adClasses;
 		switch(e.target.id) {
         	case 'branded-content':
         		buttonState['branded-content']['active'] = !buttonState['branded-content']['active'];
@@ -328,9 +191,9 @@ class AdCustomPage extends Component {
     			break;
         }
         this.setState({
-        	buttons: buttonState
+        	buttons: buttonState,
+        	adClasses: adClasses
         })
-        document.getElementById('ad-overlay').className = adClasses;
 		console.log('toggleSquareClick', e.target.id, parentCatergory)
 	}
 	
@@ -346,7 +209,7 @@ class AdCustomPage extends Component {
 					<div className="container-ad-image">
 						<div className="ig-modal-pic">
 							<div className="container-ad">
-								<div id="ad-overlay" className="ad"></div>
+								<div id="ad-overlay" className={this.state.adClasses}></div>
 							</div>
 							{/* this.state.postData && <IgModal postData={this.state.postData} /> */}
 							<img className="img-fluid invisible" src={require('../../igmodal.png')}/>
