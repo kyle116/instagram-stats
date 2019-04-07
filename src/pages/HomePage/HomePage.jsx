@@ -14,7 +14,7 @@ class HomePage extends Component {
 		super(props);
 		this.state = {
 			postData: null,
-			url: 'https://www.instagram.com/p/BvmpcOWhHId/',
+			url: 'https://www.instagram.com/p/BvnFryzgu0_/',
 			embedUrl: ''
 		}
 	    this.onChange = this.onChange.bind(this);
@@ -56,8 +56,8 @@ class HomePage extends Component {
 			<div className="text-center mt-3 mb-3">The currency for influencer sponsorship valuations</div>
 			<div className="row">
 				<div className="col-sm-8">
-					{/* this.state.postData && <IgModal postData={this.state.postData} /> */}
-					<img className="img-fluid float-right homeImage" src={require('../../igmodal.png')}/>
+					{this.state.postData && <IgModal postData={this.state.postData} />}
+					{/* <img className="img-fluid float-right homeImage" src={require('../../igmodal.png')}/> */}
 				</div>
 				<div className="col-sm-4">
 					<div className="container d-flex h-100">

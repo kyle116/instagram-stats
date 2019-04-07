@@ -82,7 +82,6 @@ class IgModal extends Component {
 		                <ul id="UL_46">
 		                	{
 		                		this.state.postData.comments.map((comment, i) => {
-		                			console.log('comment', comment)
 									return (
 										<li key={i} id="LI_47">
 											<div id="DIV_48">

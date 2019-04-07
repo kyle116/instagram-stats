@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Redirect, Link} from 'react-router-dom';
 // Services
 import itemService from '../../services/itemService';
 // Components
+import IgModal from '../../components/IgModal/IgModal';
 import NavBar from '../../components/NavBar/NavBar';
 // Stylesheets
 import './MediaValuePage.css';
@@ -46,8 +47,8 @@ class MediaValuePage extends Component {
 			<div className="text-center mt-3 mb-3">&nbsp;</div>
 			<div className="row">
 				<div className="col-sm-8">
-					{/* this.state.postData && <IgModal postData={this.state.postData} /> */}
-					<img className="img-fluid float-right mediaValueImage" src={require('../../igmodal.png')}/>
+					{this.state.postData && <IgModal postData={this.state.postData} />}
+					{/* <img className="img-fluid float-right mediaValueImage" src={require('../../igmodal.png')}/> */}
 				</div>
 				<div className="col-sm-4">
 					<div className="container d-flex h-100">

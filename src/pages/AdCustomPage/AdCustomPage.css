@@ -32,9 +32,10 @@ img {
     position: relative;
     
 }
-.square-radio--clicked .square-radio--content{
+.square-radio-clicked {
     /*margin: auto;*/
     position: absolute;
+    pointer-events: none;
     left: 0;
     right: 0;
     top: 0;
