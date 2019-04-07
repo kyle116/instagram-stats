@@ -8,23 +8,23 @@ self.__precacheManifest = [
     "url": "/instagram-stats/static/js/runtime~main.0d189221.js"
   },
   {
-    "revision": "825381f06cec0b455127",
-    "url": "/instagram-stats/static/js/main.825381f0.chunk.js"
+    "revision": "62b7c6f4e428c6e8a9fc",
+    "url": "/instagram-stats/static/js/main.62b7c6f4.chunk.js"
   },
   {
-    "revision": "ac957e3925eccfb53217",
-    "url": "/instagram-stats/static/js/2.ac957e39.chunk.js"
+    "revision": "8726348653bc9c8eacd1",
+    "url": "/instagram-stats/static/js/2.87263486.chunk.js"
   },
   {
-    "revision": "825381f06cec0b455127",
-    "url": "/instagram-stats/static/css/main.32c540e6.chunk.css"
+    "revision": "62b7c6f4e428c6e8a9fc",
+    "url": "/instagram-stats/static/css/main.1c2d154e.chunk.css"
   },
   {
-    "revision": "ac957e3925eccfb53217",
+    "revision": "8726348653bc9c8eacd1",
     "url": "/instagram-stats/static/css/2.babe449b.chunk.css"
   },
   {
-    "revision": "a84a5471d588bac805134151453f0e8f",
+    "revision": "40286df3d9e4c735cc32c5cc481ae4d5",
     "url": "/instagram-stats/index.html"
   }
 ];
