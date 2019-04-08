@@ -96,3 +96,7 @@ img {
 	max-width: 200px;
 	max-height: 200px;
 }
+
+.ad-custom-but {
+    border: 2px solid black;
+}

@@ -13,6 +13,14 @@ class IgModal extends Component {
 	    // this.onChange = this.onChange.bind(this);
 	    // this.submitUrl = this.submitUrl.bind(this);
 	}
+	componentDidUpdate(prevProps) {
+		// updates when props change
+	    if(JSON.stringify(this.props.postData) !== JSON.stringify(prevProps.postData)) {
+			this.setState({
+				postData: this.props.postData
+			})
+	    }
+	}
 	render() {
 		return (
 		<div id="DIV_1" className="reset-this">
@@ -93,9 +101,9 @@ class IgModal extends Component {
 					                                    <span id="SPAN_53">{comment.node.text}</span>
 					                                </div>
 					                            </div>
-					                            <span id="SPAN_54"><button id="BUTTON_55">
-					                            <span id="SPAN_56" />
-					                            </button></span>
+					                            <span id="SPAN_54">
+					                            <button id="BUTTON_55" disabled><span id="SPAN_56" /></button>
+					                            </span>
 					                        </div>
 										</li>
 									)

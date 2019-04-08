@@ -13,15 +13,18 @@ class NavBar extends Component {
 	}
 	render() {
 		return (
-		<div className="row justify-content-md-center">
-			<div className="col-md-2 text-center">
-				<Link to={'/ad-customization'}>Ad Customization</Link>
-			</div>
-			<div className="col-md-2 text-center">
-				<Link to={'/'}>Home</Link>
-			</div>
-			<div className="col-md-2 text-center">
-				<Link to={'/media-value'}>Media Value</Link>
+		<div>
+			<h1 className="text-center titleLine">Instagram Stats</h1>
+			<div className="row justify-content-md-center">
+				<div className="col-md-2 text-center">
+					<Link to={'/ad-customization'}>Ad Customization</Link>
+				</div>
+				<div className="col-md-2 text-center">
+					<Link to={'/'}>Home</Link>
+				</div>
+				<div className="col-md-2 text-center">
+					<Link to={'/media-value'}>Media Value</Link>
+				</div>
 			</div>
 		</div>
 		)

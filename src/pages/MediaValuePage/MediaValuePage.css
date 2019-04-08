@@ -3,6 +3,7 @@
 }
 ul {
 	list-style-type: none;
+	padding: 0;
 }
 
 .titleLine:after {
@@ -23,4 +24,15 @@ ul {
 
 .adDescription {
 	display: inline-block;
+}
+.med-val-section {
+	margin: 10px 0;
+}
+.med-val-title {
+	font-weight: 700;
+}
+/* line break after only */
+.med-val-content:after {
+	content:"\A"; 
+	display: block;
 }
