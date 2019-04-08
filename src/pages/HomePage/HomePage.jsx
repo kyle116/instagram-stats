@@ -80,7 +80,6 @@ class HomePage extends Component {
 		}
 	    this.onChange = this.onChange.bind(this);
 	    this.submitUrl = this.submitUrl.bind(this);
-	    this.toggleSquareClick = this.toggleSquareClick.bind(this);
 	}
 	componentDidMount() {
 		if(localStorage.getItem('postData')) {
@@ -126,117 +125,6 @@ class HomePage extends Component {
 			});
 		});
 	}
-
-	toggleSquareClick(e, parentCatergory) {
-		var buttonState = Object.assign({}, this.state.buttons);
-		var adClasses = this.state.adClasses;
-		switch(e.target.id) {
-        	case 'branded-content':
-        		buttonState['branded-content']['active'] = !buttonState['branded-content']['active'];
-        		break;
-			case 'paid-partnership':
-				buttonState['paid-partnership'] = !buttonState['paid-partnership'];
-    			if(buttonState['branded-content']['paid-partnership']) {
-        			adClasses += ' paid-partnership';
-        		} else {
-        			adClasses = adClasses.replace(' paid-partnership', '');
-        		}
-    			break;
-			case 'product-placement':
-				buttonState['product-placement']['active'] = !buttonState['product-placement']['active'];
-    			if(buttonState['product-placement']['active']) {
-        			adClasses += ' product-placement';
-        		} else {
-        			adClasses = adClasses.replace(' product-placement', '');
-        		}
-    			break;
-			case 'instagram-story':
-				buttonState['instagram-story']['active'] = !buttonState['instagram-story']['active'];
-    			if(buttonState['instagram-story']['active']) {
-        			adClasses += ' instagram-story';
-        		} else {
-        			adClasses = adClasses.replace(' instagram-story', '');
-        		}
-    			break;
-			case 'small':
-        		buttonState[parentCatergory]['size']['small'] = !buttonState[parentCatergory]['size']['small'];
-        		if(buttonState[parentCatergory]['size']['small']) {
-        			adClasses += ' small';
-        		} else {
-        			adClasses = adClasses.replace(' small', '');
-        		}
-        		break;
-    		case 'medium':
-    			buttonState[parentCatergory]['size']['medium'] = !buttonState[parentCatergory]['size']['medium'];
-    			if(buttonState[parentCatergory]['size']['medium']) {
-        			adClasses += ' medium';
-        		} else {
-        			adClasses = adClasses.replace(' medium', '');
-        		}
-    			break;
-			case 'large':
-				buttonState[parentCatergory]['size']['large'] = !buttonState[parentCatergory]['size']['large'];
-    			if(buttonState[parentCatergory]['size']['large']) {
-        			adClasses += ' large';
-        		} else {
-        			adClasses = adClasses.replace(' large', '');
-        		}
-    			break;
-			case 'center':
-				buttonState[parentCatergory]['placement']['center'] = !buttonState[parentCatergory]['placement']['center'];
-    			if(buttonState[parentCatergory]['placement']['center']) {
-        			adClasses += ' center';
-        		} else {
-        			adClasses = adClasses.replace(' center', '');
-        		}
-    			break;
-			case 'corners':
-				buttonState[parentCatergory]['placement']['corners'] = !buttonState[parentCatergory]['placement']['corners'];
-    			if(buttonState[parentCatergory]['placement']['corners']) {
-        			adClasses += ' corners';
-        		} else {
-        			adClasses = adClasses.replace(' corners', '');
-        		}
-    			break;
-			case 'sides':
-				buttonState[parentCatergory]['placement']['sides'] = !buttonState[parentCatergory]['placement']['sides'];
-    			if(buttonState[parentCatergory]['placement']['sides']) {
-        			adClasses += ' sides';
-        		} else {
-        			adClasses = adClasses.replace(' sides', '');
-        		}
-    			break;
-			case 'overlay':
-				buttonState[parentCatergory]['prominence']['overlay'] = !buttonState[parentCatergory]['prominence']['overlay'];
-    			if(buttonState[parentCatergory]['prominence']['overlay']) {
-        			adClasses += ' overlay';
-        		} else {
-        			adClasses = adClasses.replace(' overlay', '');
-        		}
-    			break;
-			case 'background':
-				buttonState[parentCatergory]['prominence']['background'] = !buttonState[parentCatergory]['prominence']['background'];
-    			if(buttonState[parentCatergory]['prominence']['background']) {
-        			adClasses += ' background';
-        		} else {
-        			adClasses = adClasses.replace(' background', '');
-        		}
-    			break;
-			case 'foreground':
-				buttonState[parentCatergory]['prominence']['foreground'] = !buttonState[parentCatergory]['prominence']['foreground'];
-    			if(buttonState[parentCatergory]['prominence']['foreground']) {
-        			adClasses += ' foreground';
-        		} else {
-        			adClasses = adClasses.replace(' foreground', '');
-        		}
-    			break;
-        }
-        this.setState({
-        	buttons: buttonState,
-        	adClasses: adClasses
-        });
-        localStorage.setItem('buttons', JSON.stringify(this.state.buttons));
-	}
 	
 	render() {
 		return (
@@ -250,9 +138,6 @@ class HomePage extends Component {
 				<div className="col-sm-4">
 					<div className="container d-flex h-100">
 						
-						
-
-						<Router basename="/instagram-stats">
 							<div className="row align-self-center">
 								<Route
 									exact path='/'
@@ -270,18 +155,18 @@ class HomePage extends Component {
 								/>
 								<Route
 									exact path='/ad-customization'
-									render={(props) => <AdCustomPage {...props} buttons={this.state.buttons} toggleSquareClick={this.toggleSquareClick} />}
+									render={(props) => <AdCustomPage {...props} buttons={this.state.buttons} />}
 								/>
 								<Route
 									exact path='/media-value'
 									render={(props) => <MediaValuePage {...props} buttons={this.state.buttons} />}
 								/>
 							</div>
-						</Router>
+
 					</div>
 				</div>
 			</div>
-			<Router basename="/instagram-stats">
+
 				<div>
 					<Route
 						exact path='/'
@@ -318,7 +203,7 @@ class HomePage extends Component {
 						)}
 					/>
 				</div>
-			</Router>
+
 		</div>
 		);
 	}
