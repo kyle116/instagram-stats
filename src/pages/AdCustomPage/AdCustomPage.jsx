@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Redirect, Link} from 'react-router-dom';
 // Services
-import itemService from '../../services/itemService';
 // Components
-import IgModal from '../../components/IgModal/IgModal';
-import NavBar from '../../components/NavBar/NavBar';
 // Stylesheets
 import './AdCustomPage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';

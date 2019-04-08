@@ -22,6 +22,8 @@ class IgModal extends Component {
 	    }
 	}
 	render() {
+		var date = new Date(this.state.postData.time_of_post * 1000);
+		date = `${new Intl.DateTimeFormat('en-US', { month: 'long'}).format(date)} ${date.getDate()}`;
 		return (
 		<div id="DIV_1" className="reset-this">
 		    <article id="ARTICLE_2">
@@ -29,13 +31,13 @@ class IgModal extends Component {
 		            <div id="DIV_4">
 		                <canvas id="CANVAS_5">
 		                </canvas>
-		                <a href="/undefeatedinc/" id="A_6"><img src={this.state.postData.profile_pic} alt="undefeatedinc's profile picture" id="IMG_7" /></a>
+		                <a href={`https://www.instagram.com/${this.state.postData.username}`} target="_blank" id="A_6"><img src={this.state.postData.profile_pic} alt="undefeatedinc's profile picture" id="IMG_7" /></a>
 		            </div>
 		            <div id="DIV_8">
 		                <div id="DIV_9">
 		                    <div id="DIV_10">
 		                        <h2 id="H2_11">
-		                            <a title={this.state.postData.username} href={this.state.postData.username} id="A_12">{this.state.postData.username}</a>
+		                            <a title={this.state.postData.username} href={`https://www.instagram.com/${this.state.postData.username}`} target="_blank" id="A_12">{this.state.postData.username}</a>
 		                        </h2>
 		                        <span id="SPAN_13">Verified</span>
 		                    </div>
@@ -114,9 +116,7 @@ class IgModal extends Component {
 		            </div>
 		            <div id="DIV_253">
 		                <a href="/p/BviQFzihZor/" id="A_254" />
-		                <time id="TIME_255">
-		                1 day ago
-		                </time>
+		                <time id="TIME_255">{date}</time>
 		            </div>
 		            <section id="SECTION_256">
 		                <div id="DIV_257">

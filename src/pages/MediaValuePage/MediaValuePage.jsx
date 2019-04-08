@@ -47,6 +47,14 @@ class MediaValuePage extends Component {
 			});
 		}
 	}
+	componentDidUpdate(prevProps) {
+		// updates when props change
+	    if(JSON.stringify(this.props.buttons) !== JSON.stringify(prevProps.buttons)) {
+			this.setState({
+				buttons: this.props.buttons
+			})
+	    }
+	}
 	
 	render() {
 		function abreviateNumbers(x) {
@@ -63,9 +71,26 @@ class MediaValuePage extends Component {
 		const engagementsRaw = this.state.postData.number_of_likes + this.state.postData.number_of_comments;
 		const engagements = abreviateNumbers(engagementsRaw);
 		const impressions = abreviateNumbers(Math.round(engagementsRaw * 6.03));
+		var size;
+		var placement;
+		var prominence;
+		for(var s in this.state.buttons['branded-content']['size']) {
+			if(this.state.buttons['branded-content']['size'][s]) {
+				size = s;
+			}
+		}
+		for(var p in this.state.buttons['branded-content']['placement']) {
+			if(this.state.buttons['branded-content']['placement'][p]) {
+				placement = p;
+			}
+		}
+		for(var o in this.state.buttons['branded-content']['prominence']) {
+			if(this.state.buttons['branded-content']['prominence'][o]) {
+				prominence = o;
+			}
+		}
+		console.log(size, placement, prominence)
 		return (
-		
-
 		<div className="row align-self-center">
 			<h2>Market Value: $22,500</h2>
 			{this.state.postData &&
@@ -79,9 +104,9 @@ class MediaValuePage extends Component {
 					<span className="med-val-title">Post Engagements: </span><span className="med-val-content">{engagements}</span>
 				</div>
 				<div className="med-val-section">
-					<span className="med-val-title">Logo Size: </span><span className="med-val-content">{'Medium'}</span>
-					<span className="med-val-title">Logo Placement: </span><span className="med-val-content">{'Corners'}</span>
-					<span className="med-val-title">Logo Prominence: </span><span className="med-val-content">{'Overlay'}</span>
+					<span className="med-val-title">Logo Size: </span><span className="med-val-content">{size}</span>
+					<span className="med-val-title">Logo Placement: </span><span className="med-val-content">{placement}</span>
+					<span className="med-val-title">Logo Prominence: </span><span className="med-val-content">{prominence}</span>
 				</div>
 			</div>
 			}
