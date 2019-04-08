@@ -117,7 +117,6 @@ class HomePage extends Component {
 	submitUrl(e) {
 		e.preventDefault();
 		const url = this.state.url;
-		console.log(url)
 		itemService.igTestFunc(url).then(postData => {
 			localStorage.setItem('ig_shortcode', postData.ig_shortcode);
 			localStorage.setItem('postData', JSON.stringify(postData));
@@ -237,7 +236,6 @@ class HomePage extends Component {
         	adClasses: adClasses
         });
         localStorage.setItem('buttons', JSON.stringify(this.state.buttons));
-		console.log('toggleSquareClick', e.target.id, parentCatergory)
 	}
 	
 	render() {

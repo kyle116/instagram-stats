@@ -144,7 +144,6 @@ class AdCustomPage extends Component {
         	adClasses: adClasses
         })
         localStorage.setItem('buttons', JSON.stringify(this.state.buttons));
-		console.log('toggleSquareClick', e.target.id, parentCatergory)
 	}
 	
 	render() {

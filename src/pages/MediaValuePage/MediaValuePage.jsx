@@ -57,6 +57,11 @@ class MediaValuePage extends Component {
 	}
 	
 	render() {
+		function numberWithCommas(x) {
+		    var parts = x.toString().split(".");
+		    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		    return parts.join(".");
+		}
 		function abreviateNumbers(x) {
 			if(x > 999999) {
 				return `${x.toString().substring(0, 1)}.${x.toString().substring(1, 2)}M`;
@@ -68,12 +73,50 @@ class MediaValuePage extends Component {
 				return x;
 			}
 		}
+		function adValueCalculation(engagements, impressions, size, placement, prominence) {
+			var imageValue = (engagements * .4) + (((impressions * 9) / 1000) * .3);
+			var sizeValue, placementValue, prominenceValue;
+			switch(size) {
+				case 'small':
+					sizeValue = .1;
+					break;
+				case 'medium':
+					sizeValue = .35;
+					break;
+				case 'large':
+					sizeValue = .75;
+					break;
+			}
+			switch(placement) {
+				case 'center':
+					placementValue = .1;
+					break;
+				case 'corners':
+					placementValue = .1;
+					break;
+				case 'sides':
+					placementValue = .35;
+					break;
+			}
+			switch(prominence) {
+				case 'overlay':
+					prominenceValue = 1;
+					break;
+				case 'background':
+					prominenceValue = .35;
+					break;
+				case 'foreground':
+					prominenceValue = 1;
+					break;
+			}
+			var weightValue = (.4 * sizeValue) + (.3 * placementValue) + (.3 * prominenceValue);
+			return imageValue * weightValue;
+		}
 		const engagementsRaw = this.state.postData.number_of_likes + this.state.postData.number_of_comments;
 		const engagements = abreviateNumbers(engagementsRaw);
-		const impressions = abreviateNumbers(Math.round(engagementsRaw * 6.03));
-		var size;
-		var placement;
-		var prominence;
+		const impressionsRaw = Math.round(engagementsRaw * 6.03)
+		const impressions = abreviateNumbers(impressionsRaw);
+		var size, placement, prominence, adValue;
 		for(var s in this.state.buttons['branded-content']['size']) {
 			if(this.state.buttons['branded-content']['size'][s]) {
 				size = s;
@@ -89,10 +132,10 @@ class MediaValuePage extends Component {
 				prominence = o;
 			}
 		}
-		console.log(size, placement, prominence)
+		adValue = Math.round(adValueCalculation(engagementsRaw, impressionsRaw, size, placement, prominence));
 		return (
 		<div className="row align-self-center">
-			<h2>Market Value: $22,500</h2>
+			<h2>Market Value: ${numberWithCommas(adValue)}</h2>
 			{this.state.postData &&
 			<div>
 				<div className="med-val-section">
