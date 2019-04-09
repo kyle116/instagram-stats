@@ -17,7 +17,7 @@ class HomePage extends Component {
 		super(props);
 		this.state = {
 			postData: null,
-			url: 'https://www.instagram.com/p/',
+			url: 'https://www.instagram.com/p/Bvo_9JNgwZU',
 			embedUrl: '',
 			buttons: {
 				'branded-content': {
@@ -84,7 +84,7 @@ class HomePage extends Component {
 	componentDidMount() {
 		if(localStorage.getItem('postData')) {
 			var localPostData = JSON.parse(localStorage.getItem('postData'));
-			var igUrl = this.state.url + localPostData.ig_shortcode;
+			var igUrl = localPostData.ig_shortcode ? 'https://www.instagram.com/p/' + localPostData.ig_shortcode : this.state.url;
 			this.setState({
 				postData: localPostData,
 				url: igUrl,
@@ -138,7 +138,7 @@ class HomePage extends Component {
 				<div className="col-sm-4">
 					<div className="container d-flex h-100">
 						
-							<div className="row align-self-center">
+							<div className="row align-self-center w-100">
 								<Route
 									exact path='/'
 									render={(props) => (

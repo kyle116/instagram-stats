@@ -1,10 +1,6 @@
 .homeImage {
 	width: 80%;
 }
-.titleLine {
-	/*border-bottom: 1px solid rgb(27,188,255);*/
-}
-
 .titleLine:after {
 	border-bottom: 1px solid rgb(27,188,255);
 	content: '';
@@ -19,6 +15,7 @@
 .adMoney {
 	display: inline-block;
 	font-size: 35pt;
+	font-weight: 700;
 }
 
 .adDescription {
