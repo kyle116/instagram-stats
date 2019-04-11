@@ -148,7 +148,7 @@ class HomePage extends Component {
 											</div>
 											<div className="col-sm-8">
 												<span className="adMoney">$16,150</span>
-												<span className="adDescription align-center">@alexisren Market Value for Branded Content sponsorship on this specific post (pictured left)</span>
+												<span className="adDescription align-center">@{this.state.postData && this.state.postData.username} Market Value for Branded Content sponsorship on this specific post (pictured left)</span>
 											</div>
 										</div>
 									)}
@@ -189,16 +189,23 @@ class HomePage extends Component {
 								</form>
 							</div>
 							<div className="row">
-								{/*<div className="col-sm-4 text-center">
-									<iframe width="300" height="500" src="https://www.instagram.com/p/BuWxLVbju91/embed" frameBorder="0"></iframe>
+								<div className="col-sm-4 text-center">
+									<img className="homeImages" src={require('../../assets/ig1.png')}/>
+									<div className="homeImagesInfo">@kendalljenner x Stuart Weitzman</div>
+									<div className="homeImagesInfo">Branded Content = $1.2M</div>
 								</div>
 								<div className="col-sm-4 text-center">
-									<iframe width="300" height="500" src="https://www.instagram.com/p/BvXYVKHhSlb/embed" frameBorder="0"></iframe>
+									<img className="homeImages" src={require('../../assets/ig2.png')}/>
+									<div className="homeImagesInfo">@neymar x Beats By Dre</div>
+									<div className="homeImagesInfo">Product Placement = $500,000</div>
 								</div>
 								<div className="col-sm-4 text-center">
-									<iframe width="300" height="500" src="https://www.instagram.com/p/BviYL1-nnYy/embed" frameBorder="0"></iframe>
-								</div>*/}
+									<img className="homeImages" src={require('../../assets/ig3.png')}/>
+									<div className="homeImagesInfo">@devinbrugman x OWYN</div>
+									<div className="homeImagesInfo">Product Placement = $1,750</div>
+								</div>
 							</div>
+							<div className="row">&nbsp;</div>
 							</div>
 						)}
 					/>

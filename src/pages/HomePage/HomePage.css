@@ -21,3 +21,10 @@
 .adDescription {
 	display: inline-block;
 }
+.homeImages {
+	border: 1px solid lightGray;
+	max-height: 250px;
+}
+.homeImagesInfo {
+	font-size: 10pt;
+}
