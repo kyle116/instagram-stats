@@ -6,8 +6,8 @@ import itemService from '../../services/itemService';
 import AdCustomPage from '../AdCustomPage/AdCustomPage';
 import MediaValuePage from '../MediaValuePage/MediaValuePage';
 // Components
-import IgModal from '../../components/IgModal/IgModal';
-import NavBar from '../../components/NavBar/NavBar';
+// import IgModal from '../../components/IgModal/IgModal';
+// import NavBar from '../../components/NavBar/NavBar';
 // Stylesheets
 import './HomePage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -135,7 +135,7 @@ class HomePage extends Component {
 			<div className="row mb-5">
 				<div className="col-sm-8">
 					{/* this.state.postData && <IgModal postData={this.state.postData} /> */}
-					<img className="img-fluid float-right homeImage" src={require('../../assets/igmodal.png')}/>
+					<img alt="instagram screenshot example" className="img-fluid float-right homeImage" src={require('../../assets/igmodal.png')}/>
 				</div>
 				<div className="col-sm-4">
 					<div className="container d-flex h-100">
@@ -195,15 +195,15 @@ class HomePage extends Component {
 						{/* Circles */}
 						<div className="row mb-5">
 							<div className="col-sm-4 text-center">
-								<img className="homeCircleImages" src={require('../../assets/circle3.png')}/>
+								<img alt="step 1" className="homeCircleImages" src={require('../../assets/circle3.png')}/>
 								<div className="homeCircleImagesInfo">1. paste instagram link</div>
 							</div>
 							<div className="col-sm-4 text-center">
-								<img className="homeCircleImages" src={require('../../assets/circle2.png')}/>
+								<img alt="step 2" className="homeCircleImages" src={require('../../assets/circle2.png')}/>
 								<div className="homeCircleImagesInfo">2. select ad</div>
 							</div>
 							<div className="col-sm-4 text-center">
-								<img className="homeCircleImages" src={require('../../assets/circle1.png')}/>
+								<img alt="step 3" className="homeCircleImages" src={require('../../assets/circle1.png')}/>
 								<div className="homeCircleImagesInfo">3. get price of sponsorship</div>
 							</div>
 						</div>
@@ -211,17 +211,17 @@ class HomePage extends Component {
 						{/* Samples */}
 						<div className="row">
 							<div className="col-sm-4 text-center">
-								<img className="homeImages" src={require('../../assets/ig1.png')}/>
+								<img alt="instagram example" className="homeImages" src={require('../../assets/ig1.png')}/>
 								<div className="homeImagesInfo">@kendalljenner x Stuart Weitzman</div>
 								<div className="homeImagesInfo">Branded Content = $1.2M</div>
 							</div>
 							<div className="col-sm-4 text-center">
-								<img className="homeImages" src={require('../../assets/ig2.png')}/>
+								<img alt="instagram example" className="homeImages" src={require('../../assets/ig2.png')}/>
 								<div className="homeImagesInfo">@neymar x Beats By Dre</div>
 								<div className="homeImagesInfo">Product Placement = $500,000</div>
 							</div>
 							<div className="col-sm-4 text-center">
-								<img className="homeImages" src={require('../../assets/ig3.png')}/>
+								<img alt="instagram example" className="homeImages" src={require('../../assets/ig3.png')}/>
 								<div className="homeImagesInfo">@devinbrugman x OWYN</div>
 								<div className="homeImagesInfo">Product Placement = $1,750</div>
 							</div>

@@ -12,14 +12,8 @@ class ItemService {
 		});
 	}
 
-	testFunc() {
-		// return this.request({method: 'GET', url: '/api/items'})
-  //   		.then((response) => console.log(response.data));
-		return console.log('working');
-	}
-
 	async igTestFunc(url) {
-		const res = [];
+		// const res = [];
 		var responseData;
 	    try {
 	        const postInfoSource = await axios.get(url);
@@ -28,18 +22,10 @@ class ItemService {
 	        // postInfoSource.data contains the HTML from Axios
 	        var jsonObject = postInfoSource.data.match(/<script type="text\/javascript">window\._sharedData = (.*)<\/script>/)[1].slice(0, -1)
 	        console.log('postInfoSource', jsonObject);
+
 	        // Post pasted link
 	        const postInfo = JSON.parse(jsonObject);
 			const urlType = postInfo.entry_data.hasOwnProperty('PostPage') ? 'post' : 'profile';
-			// responseData = {
-	  //       	country_code: postInfo.country_code,
-	  //       	language_code: postInfo.language_code,
-	  //       	display_url: postInfo.entry_data.PostPage[0].graphql.shortcode_media.display_url,
-	  //       	number_of_comments: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_comment.count,
-	  //       	number_of_likes: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_preview_like.count
-	  //       	// ,sponsors: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_sponsor_user
-
-	  //       }
 
 	        responseData = {
 	        	country_code: postInfo.country_code,
@@ -57,6 +43,8 @@ class ItemService {
 	        	// ,sponsors: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_sponsor_user
 
 	        }
+
+	        // User pasted link
 	        const userUrl = url.replace(`p/${responseData.ig_shortcode}`, responseData.username);
 	        const userInfoSource = await axios.get(userUrl);
 	        var jsonObjectUser = userInfoSource.data.match(/<script type="text\/javascript">window\._sharedData = (.*)<\/script>/)[1].slice(0, -1);

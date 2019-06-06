@@ -3,8 +3,8 @@ import {BrowserRouter as Router, Route, Redirect, Link} from 'react-router-dom';
 // Services
 import itemService from '../../services/itemService';
 // Components
-import IgModal from '../../components/IgModal/IgModal';
-import NavBar from '../../components/NavBar/NavBar';
+// import IgModal from '../../components/IgModal/IgModal';
+// import NavBar from '../../components/NavBar/NavBar';
 // Stylesheets
 import './MediaValuePage.css';
 
@@ -19,16 +19,17 @@ class MediaValuePage extends Component {
 		}
 	}
 	componentDidMount() {
+		var igUrl;
 		if(localStorage.getItem('postData')) {
 			var localPostData = JSON.parse(localStorage.getItem('postData'));
-			var igUrl = this.state.url + localPostData.ig_shortcode;
+			igUrl = this.state.url + localPostData.ig_shortcode;
 			this.setState({
 				postData: localPostData,
 				url: igUrl,
 				embedUrl: `${igUrl}embed`
 			});
 		} else if(localStorage.getItem('ig_shortcode')) {
-			var igUrl = this.state.url + localStorage.getItem('ig_shortcode');
+			igUrl = this.state.url + localStorage.getItem('ig_shortcode');
 			itemService.igTestFunc(igUrl).then(postData => {
 				this.setState({
 					postData: postData,
@@ -37,7 +38,7 @@ class MediaValuePage extends Component {
 				});
 			});
 		} else {
-			var igUrl = prompt('Enter an Instagram post link');
+			igUrl = prompt('Enter an Instagram post link');
 			itemService.igTestFunc(igUrl).then(postData => {
 				this.setState({
 					postData: postData,
@@ -86,6 +87,9 @@ class MediaValuePage extends Component {
 				case 'large':
 					sizeValue = .75;
 					break;
+				default:
+					sizeValue = 0;
+					break;
 			}
 			switch(placement) {
 				case 'center':
@@ -97,6 +101,9 @@ class MediaValuePage extends Component {
 				case 'sides':
 					placementValue = .35;
 					break;
+				default:
+					sizeValue = 0;
+					break;
 			}
 			switch(prominence) {
 				case 'overlay':
@@ -107,6 +114,9 @@ class MediaValuePage extends Component {
 					break;
 				case 'foreground':
 					prominenceValue = 1;
+					break;
+				default:
+					sizeValue = 0;
 					break;
 			}
 			var weightValue = (.4 * sizeValue) + (.3 * placementValue) + (.3 * prominenceValue);
@@ -139,7 +149,7 @@ class MediaValuePage extends Component {
 			{this.state.postData &&
 			<div>
 				<div className="med-val-section">
-					<span className="med-val-title">Account: </span><span className="med-val-content"><a href={`https://www.instagram.com/${this.state.postData.username}`} target="_blank">@{this.state.postData.username}</a></span>
+					<span className="med-val-title">Account: </span><span className="med-val-content"><a href={`https://www.instagram.com/${this.state.postData.username}`} target="_blank" rel="noopener noreferrer">@{this.state.postData.username}</a></span>
 					<span className="med-val-title">Platform: </span><span className="med-val-content">{'Instagram'}</span>
 				</div>
 				<div className="med-val-section">

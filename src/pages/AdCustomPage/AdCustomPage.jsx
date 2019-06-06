@@ -11,7 +11,7 @@ class AdCustomPage extends Component {
 		super(props);
 		this.state = {
 			postData: null,
-			url: 'https://www.instagram.com/p/BvnFryzgu0_/',
+			url: 'https://www.instagram.com/p/' + JSON.parse(localStorage.getItem('postData')).ig_shortcode,
 			embedUrl: '',
 			buttons: this.props.buttons,
 			adClasses: 'ad'
@@ -138,6 +138,8 @@ class AdCustomPage extends Component {
         			adClasses = adClasses.replace(' foreground', '');
         		}
     			break;
+			default:
+				break;
         }
         this.setState({
         	buttons: buttonState,
@@ -248,7 +250,7 @@ class AdCustomPage extends Component {
 					<div className="row">
 						<div className="container">
 							<div className="row">
-						        <div id="product-placement" className="square-radio" onClick={this.toggleSquareClick} onClick={this.toggleSquareClick}>
+						        <div id="product-placement" className="square-radio" onClick={this.toggleSquareClick}>
 						            <div className={`${this.state.buttons['product-placement']['active'] ? 'square-radio-clicked' : ''}`}></div>
 						        </div>
 						    	<div>Product Placement</div>
