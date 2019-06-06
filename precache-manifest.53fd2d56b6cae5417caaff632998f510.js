@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/instagram-stats/static/media/circle3.d70aff17.png"
   },
   {
-    "revision": "527b3ad5bd9cc1a671e8",
-    "url": "/instagram-stats/static/css/main.3e7e6b7f.chunk.css"
+    "revision": "c3f41cf26024591a9720",
+    "url": "/instagram-stats/static/css/main.bb63cd0b.chunk.css"
   },
   {
     "revision": "0d189221a70ab5896987",
@@ -16,16 +16,16 @@ self.__precacheManifest = [
     "url": "/instagram-stats/static/media/ig3.65ffa9e8.png"
   },
   {
-    "revision": "8117e81bb1b52c620496",
-    "url": "/instagram-stats/static/js/2.8117e81b.chunk.js"
+    "revision": "12fb657c6249cbeb5ae1",
+    "url": "/instagram-stats/static/js/2.12fb657c.chunk.js"
   },
   {
     "revision": "b67ed9aafaad7759450f8416f3f179cc",
     "url": "/instagram-stats/static/media/igmodal.b67ed9aa.png"
   },
   {
-    "revision": "527b3ad5bd9cc1a671e8",
-    "url": "/instagram-stats/static/js/main.527b3ad5.chunk.js"
+    "revision": "c3f41cf26024591a9720",
+    "url": "/instagram-stats/static/js/main.c3f41cf2.chunk.js"
   },
   {
     "revision": "a096b41bf5c75c2a5390ab501287a264",
@@ -44,11 +44,11 @@ self.__precacheManifest = [
     "url": "/instagram-stats/static/media/ig2.3e3a0348.png"
   },
   {
-    "revision": "8117e81bb1b52c620496",
+    "revision": "12fb657c6249cbeb5ae1",
     "url": "/instagram-stats/static/css/2.babe449b.chunk.css"
   },
   {
-    "revision": "0e6888c6bf52cc7494d464b91d599235",
+    "revision": "a443ad48a60e3667241322461971ab17",
     "url": "/instagram-stats/index.html"
   }
 ];
