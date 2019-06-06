@@ -53,7 +53,7 @@ img {
 	width: 100%;*/
 }
 .ig-modal-pic {
-	background-image: url(../../igmodal.png);
+	background-image: url(../../assets/igmodal.png);
 	/*width: 100%;*/
 	background-size: contain;
 	background-repeat: no-repeat;

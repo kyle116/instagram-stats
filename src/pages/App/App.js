@@ -15,7 +15,7 @@ class App extends Component {
     return (
 	<Router basename="/instagram-stats">
 		<div className="App">
-			<NavBar/>
+			{/* <NavBar/> */}
 			<Route
 				exact path='/'
 				render={(props) => <HomePage {...props} />}

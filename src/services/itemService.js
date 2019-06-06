@@ -46,13 +46,13 @@ class ItemService {
 	        	language_code: postInfo.language_code,
 	        	ig_shortcode: postInfo.entry_data.PostPage[0].graphql.shortcode_media.shortcode,
 	        	display_url: postInfo.entry_data.PostPage[0].graphql.shortcode_media.display_url,
-	        	number_of_comments: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_comment.count,
+	        	number_of_comments: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_parent_comment.count,
 	        	number_of_likes: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_preview_like.count,
 				profile_pic: postInfo.entry_data.PostPage[0].graphql.shortcode_media.owner.profile_pic_url,
 				username: postInfo.entry_data.PostPage[0].graphql.shortcode_media.owner.username,
 				is_verified: postInfo.entry_data.PostPage[0].graphql.shortcode_media.owner.is_verified,
 				followed_by_viewer: postInfo.entry_data.PostPage[0].graphql.shortcode_media.owner.followed_by_viewer,
-				comments: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_comment.edges,
+				comments: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_parent_comment.edges,
 				time_of_post: postInfo.entry_data.PostPage[0].graphql.shortcode_media.taken_at_timestamp
 	        	// ,sponsors: postInfo.entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_sponsor_user
 
@@ -62,7 +62,6 @@ class ItemService {
 	        var jsonObjectUser = userInfoSource.data.match(/<script type="text\/javascript">window\._sharedData = (.*)<\/script>/)[1].slice(0, -1);
 	        const userInfo = JSON.parse(jsonObjectUser);
 	        responseData['followers'] = userInfo.entry_data.ProfilePage[0].graphql.user.edge_followed_by.count;
-	        console.log(responseData);
 
 	        // Screenshot of post
 	        // var postData = userInfoSource.data.match(/<article>(.*?)<\/article>/g);

@@ -151,6 +151,9 @@ class MediaValuePage extends Component {
 					<span className="med-val-title">Logo Placement: </span><span className="med-val-content">{placement}</span>
 					<span className="med-val-title">Logo Prominence: </span><span className="med-val-content">{prominence}</span>
 				</div>
+				<button>
+					<Link to={'/'}>Start Over</Link>
+				</button>
 			</div>
 			}
 		</div>
